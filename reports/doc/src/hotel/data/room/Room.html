@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>src.hotel.data.room.Room API documentation</title>
+<meta name="description" content="Abstract base class for room types.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.hotel.data.room.Room</code></h1>
+</header>
+<section id="section-intro">
+<p>Abstract base class for room types.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.hotel.data.room.Room.Room"><code class="flex name class">
+<span>class <span class="ident">Room</span></span>
+<span>(</span><span>room_number: int,<br>bed_type: <a title="src.hotel.data.enums.BedType.BedType" href="../enums/BedType.html#src.hotel.data.enums.BedType.BedType">BedType</a>,<br>smoking: bool,<br>room_type: <a title="src.hotel.data.enums.RoomType.RoomType" href="../enums/RoomType.html#src.hotel.data.enums.RoomType.RoomType">RoomType</a>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Room(Billable, ABC):
+    &#34;&#34;&#34;Abstract class representing a hotel room.&#34;&#34;&#34;
+
+    def __init__(self, room_number:int, bed_type: BedType,
+                 smoking: bool, room_type: RoomType) -&gt; None:
+        &#34;&#34;&#34;Initialize a room with basic attributes.&#34;&#34;&#34;
+
+        self._room_number = room_number
+        self._bed_type = bed_type
+        self._room_type = room_type
+        self._amenities: Set[Amenity] = set()
+        self._smoking = smoking
+        self._occupied = False
+        self._special_requests: List[str] = []
+
+    @property
+    def room_number(self) -&gt; int:
+        &#34;&#34;&#34;Return the room number.&#34;&#34;&#34;
+
+        return self._room_number
+
+    @property
+    def room_type(self) -&gt; RoomType:
+        &#34;&#34;&#34;Return the room type.&#34;&#34;&#34;
+
+        return self._room_type
+
+    @property
+    def bed_type(self) -&gt; BedType:
+        &#34;&#34;&#34;Return the bed type.&#34;&#34;&#34;
+
+        return self._bed_type
+
+    @property
+    def amenities(self) -&gt; Set[Amenity]:
+        &#34;&#34;&#34;Return the room amenities.&#34;&#34;&#34;
+
+        return self._amenities.copy()
+
+    @property
+    def smoking(self) -&gt; bool:
+        &#34;&#34;&#34;Return whether the room allows smoking.&#34;&#34;&#34;
+
+        return self._smoking
+
+    @property
+    def occupied(self) -&gt; bool:
+        &#34;&#34;&#34;Return whether the room is occupied.&#34;&#34;&#34;
+
+        return self._occupied
+        
+    # add / remove amenities
+
+    def add_amenity(self, amenity: Amenity) -&gt; None:
+        &#34;&#34;&#34;Add an amenity to the room.&#34;&#34;&#34;
+        
+        self._amenities.add(amenity)
+
+    def remove_amenity(self, amenity: Amenity) -&gt; None:
+        &#34;&#34;&#34;Remove an amenity from the room.&#34;&#34;&#34;
+
+        self._amenities.discard(amenity)
+
+    # add / clear special requests
+    @property
+    def special_requests(self) -&gt; List[str]:
+        &#34;&#34;&#34;Return the room special requests.&#34;&#34;&#34;
+
+        return self._special_requests.copy()
+
+    def add_special_request(self, request: str) -&gt; None:
+        &#34;&#34;&#34;Add a special request to the room.&#34;&#34;&#34;
+
+        self._special_requests.append(request)
+
+    def clear_special_requests(self) -&gt; None:
+        &#34;&#34;&#34;Clear all special requests from the room.&#34;&#34;&#34;
+
+        self._special_requests.clear()
+
+    def check_in(self) -&gt; None:
+        &#34;&#34;&#34;Mark the room as occupied.&#34;&#34;&#34;
+
+        self._occupied = True
+
+    def check_out(self) -&gt; None:
+        &#34;&#34;&#34;Mark the room as not occupied.&#34;&#34;&#34;
+
+        self._occupied = False
+        self.clear_special_requests()
+
+    @property
+    @abstractmethod
+    def base_price(self) -&gt; float:
+        &#34;&#34;&#34;Return the base price of the room.&#34;&#34;&#34;
+
+        raise NotImplementedError
+
+    def calculate_price(self, nights: int) -&gt; float:
+        &#34;&#34;&#34;Return the total price for the stay.&#34;&#34;&#34;
+
+        if nights &lt;= 0:
+            return 0.0
+        return self.base_price * nights
+
+    def __str__(self) -&gt; str:
+        &#34;&#34;&#34;Return the string representation of the room.&#34;&#34;&#34;
+
+        return (
+            f&#34;Room {self._room_number} - {self._room_type} - &#34;
+            f&#34;{self._bed_type} - &#34;
+            f&#34;{&#39;Smoking&#39; if self._smoking else &#39;Non-smoking&#39;}&#34;
+        )</code></pre>
+</details>
+<div class="desc"><p>Abstract class representing a hotel room.</p>
+<p>Initialize a room with basic attributes.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="src.hotel.data.interfaces.Billable.Billable" href="../interfaces/Billable.html#src.hotel.data.interfaces.Billable.Billable">Billable</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="src.hotel.data.room.DeluxeRoom.DeluxeRoom" href="DeluxeRoom.html#src.hotel.data.room.DeluxeRoom.DeluxeRoom">DeluxeRoom</a></li>
+<li><a title="src.hotel.data.room.PenthouseRoom.PenthouseRoom" href="PenthouseRoom.html#src.hotel.data.room.PenthouseRoom.PenthouseRoom">PenthouseRoom</a></li>
+<li><a title="src.hotel.data.room.StandardRoom.StandardRoom" href="StandardRoom.html#src.hotel.data.room.StandardRoom.StandardRoom">StandardRoom</a></li>
+<li><a title="src.hotel.data.room.SuiteRoom.SuiteRoom" href="SuiteRoom.html#src.hotel.data.room.SuiteRoom.SuiteRoom">SuiteRoom</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="src.hotel.data.room.Room.Room.amenities"><code class="name">prop <span class="ident">amenities</span> : Set[<a title="src.hotel.data.enums.Amenity.Amenity" href="../enums/Amenity.html#src.hotel.data.enums.Amenity.Amenity">Amenity</a>]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def amenities(self) -&gt; Set[Amenity]:
+    &#34;&#34;&#34;Return the room amenities.&#34;&#34;&#34;
+
+    return self._amenities.copy()</code></pre>
+</details>
+<div class="desc"><p>Return the room amenities.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.base_price"><code class="name">prop <span class="ident">base_price</span> : float</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def base_price(self) -&gt; float:
+    &#34;&#34;&#34;Return the base price of the room.&#34;&#34;&#34;
+
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Return the base price of the room.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.bed_type"><code class="name">prop <span class="ident">bed_type</span> : <a title="src.hotel.data.enums.BedType.BedType" href="../enums/BedType.html#src.hotel.data.enums.BedType.BedType">BedType</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def bed_type(self) -&gt; BedType:
+    &#34;&#34;&#34;Return the bed type.&#34;&#34;&#34;
+
+    return self._bed_type</code></pre>
+</details>
+<div class="desc"><p>Return the bed type.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.occupied"><code class="name">prop <span class="ident">occupied</span> : bool</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def occupied(self) -&gt; bool:
+    &#34;&#34;&#34;Return whether the room is occupied.&#34;&#34;&#34;
+
+    return self._occupied</code></pre>
+</details>
+<div class="desc"><p>Return whether the room is occupied.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.room_number"><code class="name">prop <span class="ident">room_number</span> : int</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def room_number(self) -&gt; int:
+    &#34;&#34;&#34;Return the room number.&#34;&#34;&#34;
+
+    return self._room_number</code></pre>
+</details>
+<div class="desc"><p>Return the room number.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.room_type"><code class="name">prop <span class="ident">room_type</span> : <a title="src.hotel.data.enums.RoomType.RoomType" href="../enums/RoomType.html#src.hotel.data.enums.RoomType.RoomType">RoomType</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def room_type(self) -&gt; RoomType:
+    &#34;&#34;&#34;Return the room type.&#34;&#34;&#34;
+
+    return self._room_type</code></pre>
+</details>
+<div class="desc"><p>Return the room type.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.smoking"><code class="name">prop <span class="ident">smoking</span> : bool</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def smoking(self) -&gt; bool:
+    &#34;&#34;&#34;Return whether the room allows smoking.&#34;&#34;&#34;
+
+    return self._smoking</code></pre>
+</details>
+<div class="desc"><p>Return whether the room allows smoking.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.special_requests"><code class="name">prop <span class="ident">special_requests</span> : List[str]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def special_requests(self) -&gt; List[str]:
+    &#34;&#34;&#34;Return the room special requests.&#34;&#34;&#34;
+
+    return self._special_requests.copy()</code></pre>
+</details>
+<div class="desc"><p>Return the room special requests.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.hotel.data.room.Room.Room.add_amenity"><code class="name flex">
+<span>def <span class="ident">add_amenity</span></span>(<span>self,<br>amenity: <a title="src.hotel.data.enums.Amenity.Amenity" href="../enums/Amenity.html#src.hotel.data.enums.Amenity.Amenity">Amenity</a>) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_amenity(self, amenity: Amenity) -&gt; None:
+    &#34;&#34;&#34;Add an amenity to the room.&#34;&#34;&#34;
+    
+    self._amenities.add(amenity)</code></pre>
+</details>
+<div class="desc"><p>Add an amenity to the room.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.add_special_request"><code class="name flex">
+<span>def <span class="ident">add_special_request</span></span>(<span>self, request: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_special_request(self, request: str) -&gt; None:
+    &#34;&#34;&#34;Add a special request to the room.&#34;&#34;&#34;
+
+    self._special_requests.append(request)</code></pre>
+</details>
+<div class="desc"><p>Add a special request to the room.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.calculate_price"><code class="name flex">
+<span>def <span class="ident">calculate_price</span></span>(<span>self, nights: int) ‑> float</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_price(self, nights: int) -&gt; float:
+    &#34;&#34;&#34;Return the total price for the stay.&#34;&#34;&#34;
+
+    if nights &lt;= 0:
+        return 0.0
+    return self.base_price * nights</code></pre>
+</details>
+<div class="desc"><p>Return the total price for the stay.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.check_in"><code class="name flex">
+<span>def <span class="ident">check_in</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_in(self) -&gt; None:
+    &#34;&#34;&#34;Mark the room as occupied.&#34;&#34;&#34;
+
+    self._occupied = True</code></pre>
+</details>
+<div class="desc"><p>Mark the room as occupied.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.check_out"><code class="name flex">
+<span>def <span class="ident">check_out</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_out(self) -&gt; None:
+    &#34;&#34;&#34;Mark the room as not occupied.&#34;&#34;&#34;
+
+    self._occupied = False
+    self.clear_special_requests()</code></pre>
+</details>
+<div class="desc"><p>Mark the room as not occupied.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.clear_special_requests"><code class="name flex">
+<span>def <span class="ident">clear_special_requests</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear_special_requests(self) -&gt; None:
+    &#34;&#34;&#34;Clear all special requests from the room.&#34;&#34;&#34;
+
+    self._special_requests.clear()</code></pre>
+</details>
+<div class="desc"><p>Clear all special requests from the room.</p></div>
+</dd>
+<dt id="src.hotel.data.room.Room.Room.remove_amenity"><code class="name flex">
+<span>def <span class="ident">remove_amenity</span></span>(<span>self,<br>amenity: <a title="src.hotel.data.enums.Amenity.Amenity" href="../enums/Amenity.html#src.hotel.data.enums.Amenity.Amenity">Amenity</a>) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_amenity(self, amenity: Amenity) -&gt; None:
+    &#34;&#34;&#34;Remove an amenity from the room.&#34;&#34;&#34;
+
+    self._amenities.discard(amenity)</code></pre>
+</details>
+<div class="desc"><p>Remove an amenity from the room.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.hotel.data.room" href="index.html">src.hotel.data.room</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.hotel.data.room.Room.Room" href="#src.hotel.data.room.Room.Room">Room</a></code></h4>
+<ul class="">
+<li><code><a title="src.hotel.data.room.Room.Room.add_amenity" href="#src.hotel.data.room.Room.Room.add_amenity">add_amenity</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.add_special_request" href="#src.hotel.data.room.Room.Room.add_special_request">add_special_request</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.amenities" href="#src.hotel.data.room.Room.Room.amenities">amenities</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.base_price" href="#src.hotel.data.room.Room.Room.base_price">base_price</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.bed_type" href="#src.hotel.data.room.Room.Room.bed_type">bed_type</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.calculate_price" href="#src.hotel.data.room.Room.Room.calculate_price">calculate_price</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.check_in" href="#src.hotel.data.room.Room.Room.check_in">check_in</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.check_out" href="#src.hotel.data.room.Room.Room.check_out">check_out</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.clear_special_requests" href="#src.hotel.data.room.Room.Room.clear_special_requests">clear_special_requests</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.occupied" href="#src.hotel.data.room.Room.Room.occupied">occupied</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.remove_amenity" href="#src.hotel.data.room.Room.Room.remove_amenity">remove_amenity</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.room_number" href="#src.hotel.data.room.Room.Room.room_number">room_number</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.room_type" href="#src.hotel.data.room.Room.Room.room_type">room_type</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.smoking" href="#src.hotel.data.room.Room.Room.smoking">smoking</a></code></li>
+<li><code><a title="src.hotel.data.room.Room.Room.special_requests" href="#src.hotel.data.room.Room.Room.special_requests">special_requests</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
