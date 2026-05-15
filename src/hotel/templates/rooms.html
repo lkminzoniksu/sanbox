@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-4 w-100">
+
+    <h1 class="title mb-4">
+        Rooms
+    </h1>
+
+    <form method="GET" action="/rooms/" class="row g-3 mb-4">
+
+        <div class="col-md-3">
+            <label class="form-label">Type</label>
+
+            <select name="type" class="form-select">
+                <option value="All" {% if room_type == "All" %}selected{% endif %}>
+                    All
+                </option>
+                <option value="Standard" {% if room_type == "Standard" %}selected{% endif %}>
+                    Standard
+                </option>
+                <option value="Deluxe" {% if room_type == "Deluxe" %}selected{% endif %}>
+                    Deluxe
+                </option>
+                <option value="Suite" {% if room_type == "Suite" %}selected{% endif %}>
+                    Suite
+                </option>
+                <option value="Penthouse" {% if room_type == "Penthouse" %}selected{% endif %}>
+                    Penthouse
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Status</label>
+
+            <select name="status" class="form-select">
+                <option value="All" {% if status == "All" %}selected{% endif %}>
+                    All
+                </option>
+                <option value="Free" {% if status == "Free" %}selected{% endif %}>
+                    Free
+                </option>
+                <option value="Reserved" {% if status == "Reserved" %}selected{% endif %}>
+                    Reserved
+                </option>
+                <option value="Occupied" {% if status == "Occupied" %}selected{% endif %}>
+                    Occupied
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label class="form-label">Pets</label>
+
+            <select name="pet" class="form-select">
+                <option value="All" {% if pet == "All" %}selected{% endif %}>
+                    All
+                </option>
+                <option value="Yes" {% if pet == "Yes" %}selected{% endif %}>
+                    Yes
+                </option>
+                <option value="No" {% if pet == "No" %}selected{% endif %}>
+                    No
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label class="form-label">Smoking</label>
+
+            <select name="smoking" class="form-select">
+                <option value="All" {% if smoking == "All" %}selected{% endif %}>
+                    All
+                </option>
+                <option value="Yes" {% if smoking == "Yes" %}selected{% endif %}>
+                    Yes
+                </option>
+                <option value="No" {% if smoking == "No" %}selected{% endif %}>
+                    No
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button class="btn btn-primary me-2" type="submit">
+                Filter
+            </button>
+
+            <a href="/rooms/" class="btn btn-secondary">
+                Clear
+            </a>
+        </div>
+
+    </form>
+
+    <div class="table-responsive">
+
+        <table class="table table-striped align-middle">
+
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Type</th>
+                    <th>Bed</th>
+                    <th>Smoking</th>
+                    <th>Pets</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{ room["Room"] }}</td>
+                        <td>{{ room["Type"] }}</td>
+                        <td>{{ room["Bed"] }}</td>
+                        <td>{{ room["Smoking"] }}</td>
+                        <td>{{ room["Pet"] }}</td>
+                        <td>{{ room["Status"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

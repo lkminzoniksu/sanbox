@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-4 w-100">
+
+    <h1 class="title mb-4">
+        Customers
+    </h1>
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <a
+            href="/customers/new/"
+            class="btn btn-primary"
+        >
+            Create Customer
+        </a>
+
+        <form
+            method="GET"
+            action="/customers/"
+            class="d-flex"
+        >
+
+            <input
+                type="text"
+                name="search"
+                class="form-control me-2"
+                placeholder="Search..."
+                value="{{ search }}"
+            >
+
+            <button
+                class="btn btn-outline-primary"
+                type="submit"
+            >
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-striped align-middle">
+
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for customer in customers %}
+
+                <tr>
+
+                    <td>
+                        {{ customer["User ID"] }}
+                    </td>
+
+                    <td>
+                        {{ customer["Name"] }}
+                    </td>
+
+                    <td>
+                        {{ customer["Phone"] }}
+                    </td>
+
+                    <td>
+                        {{ customer["Email"] }}
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="/customers/{{ customer['User ID'] }}/"
+                            class="btn btn-sm btn-primary"
+                        >
+                            View
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

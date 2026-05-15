@@ -10,3 +10,8 @@ pyhamcrest
 pytest
 pytest-html
 tox
+flask
+flask-classful
+python-dotenv
+flask-wtf
+email_validator

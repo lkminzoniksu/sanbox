@@ -7,7 +7,6 @@ from src.hotel.data.room.Room import Room
 
 class SuiteRoom(Room):
     """Represents a suite hotel room."""
-
     def __init__(
         self,
         room_number: int,
@@ -15,7 +14,6 @@ class SuiteRoom(Room):
         smoking: bool,
     ) -> None:
         """Initialize a suite room with basic attributes."""
-
         super().__init__(
             room_number,
             bed_type,
@@ -26,5 +24,4 @@ class SuiteRoom(Room):
     @property
     def base_price(self) -> float:
         """Return the base price of the suite room."""
-
         return 400.0

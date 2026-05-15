@@ -92,19 +92,6 @@
 <span id="L82" class="lineno"><a class="lineno" href="#L82">82</a></span>
 <span id="L83" class="lineno"><a class="lineno" href="#L83">83</a></span>
 <span id="L84" class="lineno"><a class="lineno" href="#L84">84</a></span>
-<span id="L85" class="lineno"><a class="lineno" href="#L85">85</a></span>
-<span id="L86" class="lineno"><a class="lineno" href="#L86">86</a></span>
-<span id="L87" class="lineno"><a class="lineno" href="#L87">87</a></span>
-<span id="L88" class="lineno"><a class="lineno" href="#L88">88</a></span>
-<span id="L89" class="lineno"><a class="lineno" href="#L89">89</a></span>
-<span id="L90" class="lineno"><a class="lineno" href="#L90">90</a></span>
-<span id="L91" class="lineno"><a class="lineno" href="#L91">91</a></span>
-<span id="L92" class="lineno"><a class="lineno" href="#L92">92</a></span>
-<span id="L93" class="lineno"><a class="lineno" href="#L93">93</a></span>
-<span id="L94" class="lineno"><a class="lineno" href="#L94">94</a></span>
-<span id="L95" class="lineno"><a class="lineno" href="#L95">95</a></span>
-<span id="L96" class="lineno"><a class="lineno" href="#L96">96</a></span>
-<span id="L97" class="lineno"><a class="lineno" href="#L97">97</a></span>
 </pre></td>
 <td class="table-code"><pre><span class="line-empty" title="No Anys on this line!">"""Hotel class for the hotel system."""</span>
 <span class="line-empty" title="No Anys on this line!"></span>
@@ -117,41 +104,34 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">class Hotel:</span>
 <span class="line-empty" title="No Anys on this line!">    """Represents a hotel system."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __init__(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Initialize the hotel with empty room and reservation lists."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._rooms: List[Room] = []</span>
 <span class="line-precise" title="No Anys on this line!">        self._reservations: List[Reservation] = []</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def rooms(self) -&gt; List[Room]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the hotel rooms."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._rooms.copy()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def reservations(self) -&gt; List[Reservation]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the hotel reservations."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._reservations.copy()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def add_room(self, room: Room) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Add a room to the hotel."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if room not in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            self._rooms.append(room)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def remove_room(self, room_number: int) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Remove a room from the hotel by room number."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        room = self.find_room(room_number)</span>
 <span class="line-precise" title="No Anys on this line!">        if room is not None:</span>
 <span class="line-precise" title="No Anys on this line!">            self._rooms.remove(room)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def find_room(self, room_number: int) -&gt; Optional[Room]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Find a room by room number."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        for room in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            if room.room_number == room_number:</span>
 <span class="line-precise" title="No Anys on this line!">                return room</span>
@@ -159,7 +139,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def find_available_rooms(self) -&gt; List[Room]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return all available rooms."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        available: List[Room] = []</span>
 <span class="line-precise" title="No Anys on this line!">        for room in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            if not room.occupied:</span>
@@ -168,7 +147,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def find_available_rooms_by_type(self, room_type: RoomType) -&gt; List[Room]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return all available rooms of a given type."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        available: List[Room] = []</span>
 <span class="line-precise" title="No Anys on this line!">        for room in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            if not room.occupied and room.room_type == room_type:</span>
@@ -177,20 +155,17 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def create_reservation(self, reservation: Reservation) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Add a reservation to the hotel."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if reservation not in self._reservations:</span>
 <span class="line-precise" title="No Anys on this line!">            self._reservations.append(reservation)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def cancel_reservation(self, reservation_id: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Cancel a reservation by reservation id."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        reservation = self.find_reservation(reservation_id)</span>
 <span class="line-precise" title="No Anys on this line!">        if reservation is not None:</span>
 <span class="line-precise" title="No Anys on this line!">            reservation.cancel()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def find_reservation(self, reservation_id: str) -&gt; Optional[Reservation]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Find a reservation by reservation id."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        for reservation in self._reservations:</span>
 <span class="line-precise" title="No Anys on this line!">            if reservation.reservation_id == reservation_id:</span>
 <span class="line-precise" title="No Anys on this line!">                return reservation</span>
@@ -198,7 +173,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __str__(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the string representation of the hotel."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">        return (</span>
 <span class="line-precise" title="No Anys on this line!">            f"Hotel with {len(self._rooms)} rooms and "</span>
 <span class="line-precise" title="No Anys on this line!">            f"{len(self._reservations)} reservations"</span>

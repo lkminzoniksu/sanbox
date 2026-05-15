@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+    <h1 class="title mb-4">
+        Reservation Details
+    </h1>
+
+    <p><strong>Reservation ID:</strong> {{ reservation["Res ID"] }}</p>
+    <p><strong>Guest:</strong> {{ reservation["Guest"] }}</p>
+    <p><strong>Room:</strong> {{ reservation["Room"] }}</p>
+    <p><strong>Check-in:</strong> {{ reservation["Date in"] }}</p>
+    <p><strong>Check-out:</strong> {{ reservation["Check-out"] }}</p>
+    <p><strong>Amenities:</strong> {{ reservation["Amenities"] }}</p>
+    <p><strong>Status:</strong> {{ reservation["Status"] }}</p>
+    <p><strong>Total:</strong> {{ reservation["Total"] }}</p>
+
+    <a
+        href="/reservations/{{ reservation['Res ID'] }}/edit/"
+        class="btn btn-primary"
+    >
+        Edit
+    </a>
+    <a
+        href="/reservations/{{ reservation['Res ID'] }}/cancel/"
+        class="btn btn-danger"
+    >
+        Cancel Reservation
+    </a>
+    <a
+        href="/reservations/{{ reservation['Res ID'] }}/delete/"
+        class="btn btn-danger"
+    >
+        Delete
+    </a>
+    <a
+        href="/reservations/{{ reservation['Res ID'] }}/invoice/"
+        class="btn btn-success"
+    >
+        Invoice
+    </a>
+    <a href="/reservations/" class="btn btn-secondary">
+        Return
+    </a>
+   
+
+</div>
+
+{% endblock %}

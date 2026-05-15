@@ -15,8 +15,18 @@ class TestRoomType:
 
     def test_str(self) -> None:
         """Test room type string output."""
+        assert str(RoomType.STANDARD) == "Standard"
         assert str(RoomType.DELUXE) == "Deluxe"
+        assert str(RoomType.SUITE) == "Suite"
+        assert str(RoomType.PENTHOUSE) == "Penthouse"
 
     def test_repr(self) -> None:
         """Test room type repr output."""
+        assert repr(RoomType.STANDARD) == "Standard"
+        assert repr(RoomType.DELUXE) == "Deluxe"
         assert repr(RoomType.SUITE) == "Suite"
+        assert repr(RoomType.PENTHOUSE) == "Penthouse"
+
+    def test_enum_count(self) -> None:
+        """Test total number of room types."""
+        assert len(RoomType) == 4

@@ -8,81 +8,87 @@ from src.hotel.gui.ParentPanel import ParentPanel
 class HomePanel(ParentPanel):
     """Main menu panel for the hotel GUI."""
 
-    def __init__(self, master, controller) -> None:
+    def __init__(self, master, controller, item_id: str = "") -> None:
         """Initialize the home panel."""
         super().__init__(master, controller)
 
-        self.configure(bg="#d9d9d9")
-
-        sidebar = tk.Frame(self, bg="#c084dc", width=120)
-        sidebar.pack(side="left", fill="y", padx=5, pady=5)
+        sidebar = tk.Frame(self, bg="#eee5f8", width=230)
+        sidebar.pack(side="left", fill="y")
         sidebar.pack_propagate(False)
 
-        main_area = tk.Frame(self, bg="#d9d9d9")
-        main_area.pack(side="left", fill="both", expand=True, padx=5, pady=5)
-
-        title = tk.Label(
-            main_area,
+        name = tk.Label(
+            sidebar,
             text="Hotel PieCharm",
-            font=("Arial", 16),
-            bg="#c77bea"
+            bg="#eee5f8",
+            fg="#3b176b",
+            font=("Arial", 13, "bold"),
         )
-        title.pack(fill="x", pady=5)
+        name.pack(pady=(80, 25))
 
-        spacer = tk.Label(sidebar, text="", bg="#c084dc")
-        spacer.pack(pady=45)
+        buttons = [
+            ("Rooms", "rooms"),
+            ("Book Room", "reservation_create"),
+            ("Customers", "customers"),
+            ("Reservations", "reservations"),
+            ("Reports", "reports"),
+        ]
 
-        rooms_button = tk.Button(
-            sidebar,
-            text="Rooms",
-            width=12,
-            bg="#b347d9",
-            relief="flat",
-            bd=0,
-            highlightthickness=0,
-            command=lambda: self.load_panel("rooms")
+        for text, panel in buttons:
+            button = self.make_button(
+                sidebar,
+                text,
+                lambda p=panel: self.load_panel(p),
+                width=22,
+            )
+            button.pack(fill="x", padx=18, pady=7)
+
+        main = tk.Frame(self, bg=self.background)
+        main.pack(side="left", fill="both", expand=True)
+        title = tk.Label(
+            main,
+            text="Welcome to Hotel PieCharm",
+            bg=self.background,
+            fg="#1d102e",
+            font=("Arial", 22, "bold"),
+            anchor="w",
         )
-        rooms_button.pack(padx=5, pady=5, fill="x")
+        title.pack(fill="x", padx=35, pady=(35, 6))
 
-        book_button = tk.Button(
-            sidebar,
-            text="Book Room",
-            width=12,
-            bg="#b347d9",
-            relief="flat",
-            bd=0,
-            highlightthickness=0,
-            command=lambda: self.load_panel("book")
+        subtitle = tk.Label(
+            main,
+            text="Manage rooms, customers, and reservations.",
+            bg=self.background,
+            fg="#3b176b",
+            font=("Arial", 12),
+            anchor="w",
         )
-        book_button.pack(padx=5, pady=5)
+        subtitle.pack(fill="x", padx=35)
 
-        customers_button = tk.Button(
-            sidebar,
-            text="Customers",
-            width=12,
-            bg="#b347d9",
-            relief="flat",
-            bd=0,
-            highlightthickness=0,
-            command=lambda: self.load_panel("customers")
+        card = tk.Frame(
+            main,
+            bg="white",
+            highlightbackground="#d9c8e9",
+            highlightthickness=1,
         )
-        customers_button.pack(padx=5, pady=5)
+        card.pack(fill="both", expand=True, padx=35, pady=25)
 
-        reservations_button = tk.Button(
-            sidebar,
-            text="Reservations",
-            width=12,
-            bg="#b347d9",
-            relief="flat",
-            bd=0,
-            highlightthickness=0,
-            command=lambda: self.load_panel("reservations")
+        big_icon = tk.Label(
+            card,
+            text="Hotel PieCharm",
+            bg="white",
+            fg=self.purple,
+            font=("Arial", 30, "bold"),
         )
-        reservations_button.pack(padx=5, pady=5)
+        big_icon.pack(pady=(70, 10))
 
-        bottom_bar = tk.Label(
-            self,
-            text="",
-            bg="#c77bea"
+        info = tk.Label(
+            card,
+            text='''Use the purple menu on the left to view rooms,\n
+customers, and reservations.\n
+Created by Lucas Minzoni\n
+CC410 KSU''',
+            bg="white",
+            fg="#333333",
+            font=("Arial", 13),
         )
-        bottom_bar.pack(side="bottom", fill="x", padx=5, pady=5)
+        info.pack()

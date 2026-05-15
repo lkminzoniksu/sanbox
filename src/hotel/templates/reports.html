@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+    <h1 class="title mb-4">
+        Reports
+    </h1>
+
+    <table class="table table-bordered">
+
+        <tbody>
+
+            <tr>
+                <th>Total Rooms</th>
+                <td>{{ total_rooms }}</td>
+            </tr>
+
+            <tr>
+                <th>Free Rooms</th>
+                <td>{{ free_rooms }}</td>
+            </tr>
+
+            <tr>
+                <th>Occupied Rooms</th>
+                <td>{{ occupied_rooms }}</td>
+            </tr>
+
+            <tr>
+                <th>Pet Friendly Rooms</th>
+                <td>{{ pet_rooms }}</td>
+            </tr>
+
+            <tr>
+                <th>Smoking Rooms</th>
+                <td>{{ smoking_rooms }}</td>
+            </tr>
+
+            <tr>
+                <th>Total Customers</th>
+                <td>{{ total_customers }}</td>
+            </tr>
+
+            <tr>
+                <th>Total Reservations</th>
+                <td>{{ total_reservations }}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

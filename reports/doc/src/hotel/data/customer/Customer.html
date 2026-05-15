@@ -58,7 +58,6 @@ el.replaceWith(d);
 </summary>
 <pre><code class="python">class Customer:
     &#34;&#34;&#34;Represents a hotel customer.&#34;&#34;&#34;
-
     def __init__(
         self,
         customer_id: str,
@@ -67,10 +66,8 @@ el.replaceWith(d);
         phone: str,
         address: str,
         discount: float = 0.0
-        ) -&gt; None:
-
+    ) -&gt; None:
         &#34;&#34;&#34;Initialize a customer with basic attributes.&#34;&#34;&#34;
-
         self._customer_id = customer_id
         self._name = name
         self._email = email
@@ -81,66 +78,60 @@ el.replaceWith(d);
     @property
     def customer_id(self) -&gt; str:
         &#34;&#34;&#34;Return the customer id.&#34;&#34;&#34;
-
         return self._customer_id
 
     @property
     def name(self) -&gt; str:
         &#34;&#34;&#34;Return the customer name.&#34;&#34;&#34;
-
         return self._name
 
     @name.setter
     def name(self, name: str) -&gt; None:
         &#34;&#34;&#34;Update the customer name.&#34;&#34;&#34;
-
         self._name = name
 
     @property
     def email(self) -&gt; str:
         &#34;&#34;&#34;Return the customer email.&#34;&#34;&#34;
-
         return self._email
 
     @email.setter
     def email(self, email: str) -&gt; None:
         &#34;&#34;&#34;Update the customer email.&#34;&#34;&#34;
-
         self._email = email
 
     @property
     def phone(self) -&gt; str:
         &#34;&#34;&#34;Return the customer phone.&#34;&#34;&#34;
-
         return self._phone
 
     @phone.setter
     def phone(self, phone: str) -&gt; None:
         &#34;&#34;&#34;Update the customer phone.&#34;&#34;&#34;
-
         self._phone = phone
 
     @property
     def address(self) -&gt; str:
         &#34;&#34;&#34;Return the customer address.&#34;&#34;&#34;
-
         return self._address
 
     @address.setter
     def address(self, address: str) -&gt; None:
         &#34;&#34;&#34;Update the customer address.&#34;&#34;&#34;
-
         self._address = address
 
     @property
     def discount(self) -&gt; float:
         &#34;&#34;&#34;Return the customer given discount.&#34;&#34;&#34;
-
         return self._discount
+
+    @discount.setter
+    def discount(self, value: float) -&gt; None:
+        &#34;&#34;&#34;Set customer discount.&#34;&#34;&#34;
+        self._discount = value
 
     def __str__(self) -&gt; str:
         &#34;&#34;&#34;Return the string representation of the customer.&#34;&#34;&#34;
-
         return f&#34;{self._name} #{self._customer_id}&#34;</code></pre>
 </details>
 <div class="desc"><p>Represents a hotel customer.</p>
@@ -156,7 +147,6 @@ el.replaceWith(d);
 <pre><code class="python">@property
 def address(self) -&gt; str:
     &#34;&#34;&#34;Return the customer address.&#34;&#34;&#34;
-
     return self._address</code></pre>
 </details>
 <div class="desc"><p>Return the customer address.</p></div>
@@ -170,7 +160,6 @@ def address(self) -&gt; str:
 <pre><code class="python">@property
 def customer_id(self) -&gt; str:
     &#34;&#34;&#34;Return the customer id.&#34;&#34;&#34;
-
     return self._customer_id</code></pre>
 </details>
 <div class="desc"><p>Return the customer id.</p></div>
@@ -184,7 +173,6 @@ def customer_id(self) -&gt; str:
 <pre><code class="python">@property
 def discount(self) -&gt; float:
     &#34;&#34;&#34;Return the customer given discount.&#34;&#34;&#34;
-
     return self._discount</code></pre>
 </details>
 <div class="desc"><p>Return the customer given discount.</p></div>
@@ -198,7 +186,6 @@ def discount(self) -&gt; float:
 <pre><code class="python">@property
 def email(self) -&gt; str:
     &#34;&#34;&#34;Return the customer email.&#34;&#34;&#34;
-
     return self._email</code></pre>
 </details>
 <div class="desc"><p>Return the customer email.</p></div>
@@ -212,7 +199,6 @@ def email(self) -&gt; str:
 <pre><code class="python">@property
 def name(self) -&gt; str:
     &#34;&#34;&#34;Return the customer name.&#34;&#34;&#34;
-
     return self._name</code></pre>
 </details>
 <div class="desc"><p>Return the customer name.</p></div>
@@ -226,7 +212,6 @@ def name(self) -&gt; str:
 <pre><code class="python">@property
 def phone(self) -&gt; str:
     &#34;&#34;&#34;Return the customer phone.&#34;&#34;&#34;
-
     return self._phone</code></pre>
 </details>
 <div class="desc"><p>Return the customer phone.</p></div>

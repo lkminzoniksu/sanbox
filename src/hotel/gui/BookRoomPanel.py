@@ -1,104 +1,110 @@
-"""Book room panel for hotel GUI."""
+"""Book room panel."""
 
 import tkinter as tk
+from tkinter import ttk
 
 from src.hotel.gui.ParentPanel import ParentPanel
-from src.hotel.data.room.StandardRoom import StandardRoom
-from src.hotel.data.room.DeluxeRoom import DeluxeRoom
-from src.hotel.data.room.SuiteRoom import SuiteRoom
-from src.hotel.data.room.PenthouseRoom import PenthouseRoom
-from src.hotel.data.enums.BedType import BedType
 
 
 class BookRoomPanel(ParentPanel):
-    """Panel for booking a hotel room."""
+    """Panel to create a room reservation."""
 
-    def __init__(self, master, controller) -> None:
-        """Initialize the book room panel."""
+    def __init__(self, master, controller, item_id: str = "") -> None:
+        """Initialize book room panel."""
         super().__init__(master, controller)
 
-        title = tk.Label(self, text="Book Room", font=("Arial", 20))
-        title.pack(pady=10)
+        self.make_header("Hotel PieCharm")
 
-        return_button = tk.Button(
-            self,
-            text="Return",
-            command=lambda: self.load_panel("home")
+        body = tk.Frame(self, bg=self.background)
+        body.pack(fill="both", expand=True)
+
+        self.make_path(body, "/ Reservations / New")
+
+        card = self.make_card(body)
+
+        form = tk.Frame(card, bg=self.panel_bg)
+        form.pack(fill="x", padx=20, pady=20)
+
+        self.guest_entry = self.make_entry_row(
+            form,
+            "Guest:",
+            "John Doe")
+        self.email_entry = self.make_entry_row(
+            form,
+            "Email:",
+            "John.Doe@news.com")
+        self.phone_entry = self.make_entry_row(
+            form,
+            "Phone:",
+            "(785) 223-2222")
+
+        room_row = tk.Frame(form, bg=self.panel_bg)
+        room_row.pack(fill="x", pady=5)
+
+        room_label = tk.Label(
+            room_row,
+            text="Room:",
+            bg=self.panel_bg,
+            width=12,
+            anchor="w",
         )
-        return_button.pack(pady=5)
-
-        customer_label = tk.Label(self, text="Customer Name:")
-        customer_label.pack()
-
-        self.customer_entry = tk.Entry(self)
-        self.customer_entry.pack(pady=5)
-
-        room_label = tk.Label(self, text="Room Number:")
-        room_label.pack()
-
-        self.room_entry = tk.Entry(self)
-        self.room_entry.pack(pady=5)
-
-        nights_label = tk.Label(self, text="Number of Nights:")
-        nights_label.pack()
-
-        self.nights_entry = tk.Entry(self)
-        self.nights_entry.pack(pady=5)
-
-        self.result_label = tk.Label(self, text="")
-        self.result_label.pack(pady=10)
-
-        calculate_button = tk.Button(
-            self,
-            text="Calculate Total",
-            command=self.calculate_total
+        room_label.pack(side="left")
+        self.room_combo = ttk.Combobox(
+            room_row,
+            values=[
+                "101",
+                "102",
+                "105",
+                "201",
+                "202",
+                "203"],
+            state="readonly",
         )
-        calculate_button.pack(pady=5)
+        self.room_combo.set("101")
+        self.room_combo.pack(side="left", fill="x", expand=True)
 
-        book_button = tk.Button(
-            self,
-            text="Book Room",
-            command=self.book_room
+        self.checkin_entry = self.make_entry_row(
+            form,
+            "Check-in:",
+            "02/22/2022")
+        self.checkout_entry = self.make_entry_row(
+            form,
+            "Check-out:",
+            "02/25/2022")
+        self.total_entry = self.make_entry_row(
+            form,
+            "Total:",
+            "$350.00")
+
+        button_frame = tk.Frame(card, bg=self.panel_bg)
+        button_frame.pack(fill="x", padx=20, pady=10)
+
+        confirm_button = self.make_button(
+            button_frame,
+            "Confirm",
+            self.create_reservation,
         )
-        book_button.pack(pady=5)
+        confirm_button.pack(side="left", padx=(0, 8))
 
-    def calculate_total(self) -> None:
-        """Calculate total price based on room type."""
-        try:
-            room_number = int(self.room_entry.get())
-            nights = int(self.nights_entry.get())
+        cancel_button = self.make_button(
+            button_frame,
+            "Cancel",
+            lambda: self.load_panel("home"),
+        )
+        cancel_button.pack(side="left")
 
-            # simple rule based on room number
-            if room_number < 200:
-                room = StandardRoom(room_number, BedType.QUEEN, False)
-            elif room_number < 300:
-                room = DeluxeRoom(room_number, BedType.KING, False)
-            elif room_number < 400:
-                room = SuiteRoom(room_number, BedType.KING, False)
-            else:
-                room = PenthouseRoom(room_number, BedType.KING, False)
+    def create_reservation(self) -> None:
+        """Create a reservation in memory."""
+        new_id = str(1000 + len(self._controller.reservations) + 1)
 
-            total = room.calculate_price(nights)
+        reservation = {
+            "Res ID": new_id,
+            "Type": "std",
+            "Date in": self.checkin_entry.get(),
+            "Paid": "No",
+            "Status": "Conf",
+            "Guest": self.guest_entry.get(),
+        }
 
-            self.result_label.config(
-                text=f"Estimated Total: ${total:.2f} ({room.room_type})"
-            )
-
-        except ValueError:
-            self.result_label.config(text="Invalid input.")
-
-    def book_room(self) -> None:
-        """Display booking confirmation."""
-        customer = self.customer_entry.get()
-        room = self.room_entry.get()
-        nights = self.nights_entry.get()
-
-        if customer == "" or room == "" or nights == "":
-            self.result_label.config(text="Please fill all fields.")
-        else:
-            self.result_label.config(
-                text=(
-                    f"Room {room} booked for {customer} "
-                    f"for {nights} nights."
-                )
-            )
+        self._controller.reservations.append(reservation)
+        self.load_panel("reservations")

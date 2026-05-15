@@ -57,41 +57,34 @@ el.replaceWith(d);
 </summary>
 <pre><code class="python">class Hotel:
     &#34;&#34;&#34;Represents a hotel system.&#34;&#34;&#34;
-
     def __init__(self) -&gt; None:
         &#34;&#34;&#34;Initialize the hotel with empty room and reservation lists.&#34;&#34;&#34;
-
         self._rooms: List[Room] = []
         self._reservations: List[Reservation] = []
 
     @property
     def rooms(self) -&gt; List[Room]:
         &#34;&#34;&#34;Return the hotel rooms.&#34;&#34;&#34;
-
         return self._rooms.copy()
 
     @property
     def reservations(self) -&gt; List[Reservation]:
         &#34;&#34;&#34;Return the hotel reservations.&#34;&#34;&#34;
-
         return self._reservations.copy()
 
     def add_room(self, room: Room) -&gt; None:
         &#34;&#34;&#34;Add a room to the hotel.&#34;&#34;&#34;
-
         if room not in self._rooms:
             self._rooms.append(room)
 
     def remove_room(self, room_number: int) -&gt; None:
         &#34;&#34;&#34;Remove a room from the hotel by room number.&#34;&#34;&#34;
-
         room = self.find_room(room_number)
         if room is not None:
             self._rooms.remove(room)
 
     def find_room(self, room_number: int) -&gt; Optional[Room]:
         &#34;&#34;&#34;Find a room by room number.&#34;&#34;&#34;
-
         for room in self._rooms:
             if room.room_number == room_number:
                 return room
@@ -99,7 +92,6 @@ el.replaceWith(d);
 
     def find_available_rooms(self) -&gt; List[Room]:
         &#34;&#34;&#34;Return all available rooms.&#34;&#34;&#34;
-
         available: List[Room] = []
         for room in self._rooms:
             if not room.occupied:
@@ -108,7 +100,6 @@ el.replaceWith(d);
 
     def find_available_rooms_by_type(self, room_type: RoomType) -&gt; List[Room]:
         &#34;&#34;&#34;Return all available rooms of a given type.&#34;&#34;&#34;
-
         available: List[Room] = []
         for room in self._rooms:
             if not room.occupied and room.room_type == room_type:
@@ -117,20 +108,17 @@ el.replaceWith(d);
 
     def create_reservation(self, reservation: Reservation) -&gt; None:
         &#34;&#34;&#34;Add a reservation to the hotel.&#34;&#34;&#34;
-
         if reservation not in self._reservations:
             self._reservations.append(reservation)
 
     def cancel_reservation(self, reservation_id: str) -&gt; None:
         &#34;&#34;&#34;Cancel a reservation by reservation id.&#34;&#34;&#34;
-
         reservation = self.find_reservation(reservation_id)
         if reservation is not None:
             reservation.cancel()
 
     def find_reservation(self, reservation_id: str) -&gt; Optional[Reservation]:
         &#34;&#34;&#34;Find a reservation by reservation id.&#34;&#34;&#34;
-
         for reservation in self._reservations:
             if reservation.reservation_id == reservation_id:
                 return reservation
@@ -138,7 +126,6 @@ el.replaceWith(d);
 
     def __str__(self) -&gt; str:
         &#34;&#34;&#34;Return the string representation of the hotel.&#34;&#34;&#34;
-
         return (
             f&#34;Hotel with {len(self._rooms)} rooms and &#34;
             f&#34;{len(self._reservations)} reservations&#34;
@@ -157,7 +144,6 @@ el.replaceWith(d);
 <pre><code class="python">@property
 def reservations(self) -&gt; List[Reservation]:
     &#34;&#34;&#34;Return the hotel reservations.&#34;&#34;&#34;
-
     return self._reservations.copy()</code></pre>
 </details>
 <div class="desc"><p>Return the hotel reservations.</p></div>
@@ -171,7 +157,6 @@ def reservations(self) -&gt; List[Reservation]:
 <pre><code class="python">@property
 def rooms(self) -&gt; List[Room]:
     &#34;&#34;&#34;Return the hotel rooms.&#34;&#34;&#34;
-
     return self._rooms.copy()</code></pre>
 </details>
 <div class="desc"><p>Return the hotel rooms.</p></div>
@@ -189,7 +174,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def add_room(self, room: Room) -&gt; None:
     &#34;&#34;&#34;Add a room to the hotel.&#34;&#34;&#34;
-
     if room not in self._rooms:
         self._rooms.append(room)</code></pre>
 </details>
@@ -205,7 +189,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def cancel_reservation(self, reservation_id: str) -&gt; None:
     &#34;&#34;&#34;Cancel a reservation by reservation id.&#34;&#34;&#34;
-
     reservation = self.find_reservation(reservation_id)
     if reservation is not None:
         reservation.cancel()</code></pre>
@@ -222,7 +205,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def create_reservation(self, reservation: Reservation) -&gt; None:
     &#34;&#34;&#34;Add a reservation to the hotel.&#34;&#34;&#34;
-
     if reservation not in self._reservations:
         self._reservations.append(reservation)</code></pre>
 </details>
@@ -238,7 +220,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def find_available_rooms(self) -&gt; List[Room]:
     &#34;&#34;&#34;Return all available rooms.&#34;&#34;&#34;
-
     available: List[Room] = []
     for room in self._rooms:
         if not room.occupied:
@@ -257,7 +238,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def find_available_rooms_by_type(self, room_type: RoomType) -&gt; List[Room]:
     &#34;&#34;&#34;Return all available rooms of a given type.&#34;&#34;&#34;
-
     available: List[Room] = []
     for room in self._rooms:
         if not room.occupied and room.room_type == room_type:
@@ -276,7 +256,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def find_reservation(self, reservation_id: str) -&gt; Optional[Reservation]:
     &#34;&#34;&#34;Find a reservation by reservation id.&#34;&#34;&#34;
-
     for reservation in self._reservations:
         if reservation.reservation_id == reservation_id:
             return reservation
@@ -294,7 +273,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def find_room(self, room_number: int) -&gt; Optional[Room]:
     &#34;&#34;&#34;Find a room by room number.&#34;&#34;&#34;
-
     for room in self._rooms:
         if room.room_number == room_number:
             return room
@@ -312,7 +290,6 @@ def rooms(self) -&gt; List[Room]:
 </summary>
 <pre><code class="python">def remove_room(self, room_number: int) -&gt; None:
     &#34;&#34;&#34;Remove a room from the hotel by room number.&#34;&#34;&#34;
-
     room = self.find_room(room_number)
     if room is not None:
         self._rooms.remove(room)</code></pre>

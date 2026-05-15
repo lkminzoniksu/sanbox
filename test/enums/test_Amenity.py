@@ -11,7 +11,6 @@ class TestAmenity:
         assert Amenity.BREAKFAST.value == "Breakfast"
         assert Amenity.PARKING.value == "Parking"
         assert Amenity.POOL.value == "Pool"
-        assert Amenity.VIEW.value == "View"
         assert Amenity.EXTRA_BED.value == "Extra Bed"
         assert Amenity.PET_AREA.value == "Pet Area"
         assert Amenity.JACUZZI.value == "Jacuzzi"
@@ -20,7 +19,13 @@ class TestAmenity:
     def test_str(self) -> None:
         """Test amenity string output."""
         assert str(Amenity.BREAKFAST) == "Breakfast"
+        assert str(Amenity.JACUZZI) == "Jacuzzi"
 
     def test_repr(self) -> None:
         """Test amenity repr output."""
         assert repr(Amenity.POOL) == "Pool"
+        assert repr(Amenity.BALCONY) == "Balcony"
+
+    def test_enum_count(self) -> None:
+        """Test total number of amenities."""
+        assert len(Amenity) == 7

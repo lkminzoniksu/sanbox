@@ -7,7 +7,6 @@ class Amenity(Enum):
     BREAKFAST = "Breakfast"
     PARKING = "Parking"
     POOL = "Pool"
-    VIEW = "View"
     EXTRA_BED = "Extra Bed"
     PET_AREA = "Pet Area"
     JACUZZI = "Jacuzzi"

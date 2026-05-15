@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card overflow-hidden p-0 mb-5">
+
+    <div
+        class="text-white text-center d-flex align-items-center justify-content-center"
+        style="
+            background-image:
+            linear-gradient(
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)
+            ),
+            url('https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=1740&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+        "
+    >
+
+        <div>
+
+            <h1
+                class="display-2 fw-bold mb-4"
+            >
+                Hotel PieCharm
+            </h1>
+
+            <p
+                class="lead fs-3"
+            >
+                Modern Hotel Management System
+            </p>
+
+            <a
+                href="/reservations/"
+                class="btn btn-lg btn-light mt-3"
+            >
+                Book Reservation
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row g-4 mb-5">
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <img
+                src="http://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?q=80&w=774&auto=format&fit=crop"
+                class="card-img-top"
+                style="height: 250px; object-fit: cover;"
+            >
+
+            <div class="card-body d-flex flex-column">
+
+                <h3 class="title">
+                    Luxury Rooms
+                </h3>
+
+                <p>
+                    Explore standard, deluxe, suite,
+                    and penthouse rooms with advanced
+                    filtering and availability checks.
+                </p>
+
+                <a
+                    href="/rooms/"
+                    class="btn btn-primary mt-auto"
+                >
+                    View Rooms
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <img
+                src="https://images.unsplash.com/photo-1660557989695-14fac79c086d?q=80&w=928&auto=format&fit=crop"
+                class="card-img-top"
+                style="height: 250px; object-fit: cover;"
+            >
+
+            <div class="card-body d-flex flex-column">
+
+                <h3 class="title">
+                    Smart Reservations
+                </h3>
+
+                <p>
+                    Create, edit, cancel, search,
+                    and validate reservations with
+                    automatic room availability.
+                </p>
+
+                <a
+                    href="/reservations/"
+                    class="btn btn-primary mt-auto"
+                >
+                    Reservations
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100">
+
+            <img
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1548&auto=format&fit=crop"
+                class="card-img-top"
+                style="height: 250px; object-fit: cover;"
+            >
+
+            <div class="card-body d-flex flex-column">
+
+                <h3 class="title">
+                    Customer Management
+                </h3>
+
+                <p>
+                    Manage customer records with
+                    full CRUD operations and
+                    integrated search functionality.
+                </p>
+
+                <a
+                    href="/customers/"
+                    class="btn btn-primary mt-auto"
+                >
+                    Customers
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card p-5 text-center mb-5">
+
+    <h2 class="title mb-4">
+        Hotel Analytics & Reports
+    </h2>
+
+    <img
+        src="https://images.unsplash.com/photo-1578991624414-276ef23a534f?q=80&w=2054&auto=format&fit=crop"
+        class="img-fluid rounded mb-4"
+        style="max-height: 400px; object-fit: cover;"
+    >
+
+    <p class="lead">
+        Monitor occupancy, reservations,
+        customer activity, room availability,
+        and hotel statistics in real time.
+    </p>
+
+    <a
+        href="/reports/"
+        class="btn btn-primary mt-3"
+    >
+        View Reports
+    </a>
+
+</div>
+
+{% endblock %}

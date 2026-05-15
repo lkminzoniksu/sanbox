@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+    <h1 class="title mb-4">
+        {% if res_id %}
+            Edit Reservation
+        {% else %}
+            Create Reservation
+        {% endif %}
+    </h1>
+
+    <form
+        method="POST"
+        action="{% if res_id %}/reservations/{{ res_id }}/edit/{% else %}/reservations/{% endif %}"
+        novalidate
+    >
+
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+
+            {{ form.guest.label(class="form-label") }}
+
+            {% if form.guest.errors %}
+
+                {{ form.guest(
+                    class="form-select is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.guest.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.guest(
+                    class="form-select"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.room.label(class="form-label") }}
+
+            {% if form.room.errors %}
+
+                {{ form.room(
+                    class="form-select is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.room.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.room(
+                    class="form-select"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.checkin.label(
+                class="form-label"
+            ) }}
+
+            {% if form.checkin.errors %}
+
+                {{ form.checkin(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.checkin.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.checkin(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.checkout.label(
+                class="form-label"
+            ) }}
+
+            {% if form.checkout.errors %}
+
+                {{ form.checkout(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.checkout.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.checkout(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.amenities.label(
+                class="form-label"
+            ) }}
+
+            {{ form.amenities(
+                class="form-select",
+                size=7
+            ) }}
+
+        </div>
+
+        <div class="mb-4">
+
+            {{ form.status.label(
+                class="form-label"
+            ) }}
+
+            {% if form.status.errors %}
+
+                {{ form.status(
+                    class="form-select is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.status.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.status(
+                    class="form-select"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        {% if res_id %}
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update Reservation
+            </button>
+
+        {% else %}
+
+            {{ form.submit(
+                class="btn btn-primary"
+            ) }}
+
+        {% endif %}
+
+        <a
+            href="/reservations/"
+            class="btn btn-secondary"
+        >
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

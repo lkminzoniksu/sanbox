@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+    <h1 class="title mb-4">
+
+        {% if customer_id %}
+            Edit Customer
+        {% else %}
+            Create Customer
+        {% endif %}
+
+    </h1>
+
+    <form
+        method="POST"
+        action="{% if customer_id %}/customers/{{ customer_id }}/edit/{% else %}/customers/{% endif %}"
+        novalidate
+    >
+
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+
+            {{ form.name.label(class="form-label") }}
+
+            {% if form.name.errors %}
+
+                {{ form.name(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.name.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.name(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.phone.label(class="form-label") }}
+
+            {% if form.phone.errors %}
+
+                {{ form.phone(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.phone.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.phone(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-3">
+
+            {{ form.email.label(class="form-label") }}
+
+            {% if form.email.errors %}
+
+                {{ form.email(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.email.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.email(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="mb-4">
+
+            {{ form.address.label(class="form-label") }}
+
+            {% if form.address.errors %}
+
+                {{ form.address(
+                    class="form-control is-invalid"
+                ) }}
+
+                <div class="invalid-feedback">
+
+                    {% for error in form.address.errors %}
+                        {{ error }}
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                {{ form.address(
+                    class="form-control"
+                ) }}
+
+            {% endif %}
+
+        </div>
+
+        {% if customer_id %}
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Update Customer
+            </button>
+
+        {% else %}
+
+            {{ form.submit(
+                class="btn btn-primary"
+            ) }}
+
+        {% endif %}
+
+        <a
+            href="/customers/"
+            class="btn btn-secondary"
+        >
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

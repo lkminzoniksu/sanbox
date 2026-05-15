@@ -88,20 +88,12 @@
 <span id="L78" class="lineno"><a class="lineno" href="#L78">78</a></span>
 <span id="L79" class="lineno"><a class="lineno" href="#L79">79</a></span>
 <span id="L80" class="lineno"><a class="lineno" href="#L80">80</a></span>
-<span id="L81" class="lineno"><a class="lineno" href="#L81">81</a></span>
-<span id="L82" class="lineno"><a class="lineno" href="#L82">82</a></span>
-<span id="L83" class="lineno"><a class="lineno" href="#L83">83</a></span>
-<span id="L84" class="lineno"><a class="lineno" href="#L84">84</a></span>
-<span id="L85" class="lineno"><a class="lineno" href="#L85">85</a></span>
-<span id="L86" class="lineno"><a class="lineno" href="#L86">86</a></span>
-<span id="L87" class="lineno"><a class="lineno" href="#L87">87</a></span>
-<span id="L88" class="lineno"><a class="lineno" href="#L88">88</a></span>
 </pre></td>
 <td class="table-code"><pre><span class="line-empty" title="No Anys on this line!">"""Customer class for the hotel system."""</span>
 <span class="line-empty" title="No Anys on this line!"></span>
+<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">class Customer:</span>
 <span class="line-empty" title="No Anys on this line!">    """Represents a hotel customer."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __init__(</span>
 <span class="line-empty" title="No Anys on this line!">        self,</span>
 <span class="line-empty" title="No Anys on this line!">        customer_id: str,</span>
@@ -110,10 +102,8 @@
 <span class="line-empty" title="No Anys on this line!">        phone: str,</span>
 <span class="line-empty" title="No Anys on this line!">        address: str,</span>
 <span class="line-precise" title="No Anys on this line!">        discount: float = 0.0</span>
-<span class="line-empty" title="No Anys on this line!">        ) -&gt; None:</span>
-<span class="line-empty" title="No Anys on this line!"></span>
+<span class="line-empty" title="No Anys on this line!">    ) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Initialize a customer with basic attributes."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._customer_id = customer_id</span>
 <span class="line-precise" title="No Anys on this line!">        self._name = name</span>
 <span class="line-precise" title="No Anys on this line!">        self._email = email</span>
@@ -124,66 +114,60 @@
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def customer_id(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer id."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._customer_id</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def name(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer name."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._name</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @name.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def name(self, name: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the customer name."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._name = name</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def email(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer email."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._email</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @email.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def email(self, email: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the customer email."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._email = email</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def phone(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer phone."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._phone</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @phone.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def phone(self, phone: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the customer phone."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._phone = phone</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def address(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer address."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._address</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @address.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def address(self, address: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the customer address."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._address = address</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def discount(self) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the customer given discount."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._discount</span>
+<span class="line-empty" title="No Anys on this line!"></span>
+<span class="line-unanalyzed" title="No Anys on this line!">    @discount.setter</span>
+<span class="line-precise" title="No Anys on this line!">    def discount(self, value: float) -&gt; None:</span>
+<span class="line-empty" title="No Anys on this line!">        """Set customer discount."""</span>
+<span class="line-precise" title="No Anys on this line!">        self._discount = value</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __str__(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the string representation of the customer."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return f"{self._name} #{self._customer_id}"</span>
 </pre></td>
 </tr></tbody>

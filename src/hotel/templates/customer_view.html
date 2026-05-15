@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+    <h1 class="title mb-4">
+        Customer Details
+    </h1>
+
+    <p><strong>User ID:</strong> {{ customer["User ID"] }}</p>
+    <p><strong>Name:</strong> {{ customer["Name"] }}</p>
+    <p><strong>Phone:</strong> {{ customer["Phone"] }}</p>
+    <p><strong>Email:</strong> {{ customer["Email"] }}</p>
+    <p><strong>Address:</strong> {{ customer["Address"] }}</p>
+
+    <a
+        href="/customers/{{ customer['User ID'] }}/edit/"
+        class="btn btn-primary"
+    >
+        Edit
+    </a>
+
+    <a
+        href="/customers/{{ customer['User ID'] }}/delete/"
+        class="btn btn-danger"
+    >
+        Delete
+    </a>
+
+    <a
+        href="/customers/"
+        class="btn btn-secondary"
+    >
+        Return
+    </a>
+
+</div>
+
+{% endblock %}

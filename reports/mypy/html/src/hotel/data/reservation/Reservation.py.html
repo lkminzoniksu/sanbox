@@ -174,29 +174,9 @@
 <span id="L164" class="lineno"><a class="lineno" href="#L164">164</a></span>
 <span id="L165" class="lineno"><a class="lineno" href="#L165">165</a></span>
 <span id="L166" class="lineno"><a class="lineno" href="#L166">166</a></span>
-<span id="L167" class="lineno"><a class="lineno" href="#L167">167</a></span>
-<span id="L168" class="lineno"><a class="lineno" href="#L168">168</a></span>
-<span id="L169" class="lineno"><a class="lineno" href="#L169">169</a></span>
-<span id="L170" class="lineno"><a class="lineno" href="#L170">170</a></span>
-<span id="L171" class="lineno"><a class="lineno" href="#L171">171</a></span>
-<span id="L172" class="lineno"><a class="lineno" href="#L172">172</a></span>
-<span id="L173" class="lineno"><a class="lineno" href="#L173">173</a></span>
-<span id="L174" class="lineno"><a class="lineno" href="#L174">174</a></span>
-<span id="L175" class="lineno"><a class="lineno" href="#L175">175</a></span>
-<span id="L176" class="lineno"><a class="lineno" href="#L176">176</a></span>
-<span id="L177" class="lineno"><a class="lineno" href="#L177">177</a></span>
-<span id="L178" class="lineno"><a class="lineno" href="#L178">178</a></span>
-<span id="L179" class="lineno"><a class="lineno" href="#L179">179</a></span>
-<span id="L180" class="lineno"><a class="lineno" href="#L180">180</a></span>
-<span id="L181" class="lineno"><a class="lineno" href="#L181">181</a></span>
-<span id="L182" class="lineno"><a class="lineno" href="#L182">182</a></span>
-<span id="L183" class="lineno"><a class="lineno" href="#L183">183</a></span>
-<span id="L184" class="lineno"><a class="lineno" href="#L184">184</a></span>
-<span id="L185" class="lineno"><a class="lineno" href="#L185">185</a></span>
-<span id="L186" class="lineno"><a class="lineno" href="#L186">186</a></span>
-<span id="L187" class="lineno"><a class="lineno" href="#L187">187</a></span>
 </pre></td>
 <td class="table-code"><pre><span class="line-empty" title="No Anys on this line!">"""Reservation class for the hotel system."""</span>
+<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">from datetime import date</span>
 <span class="line-precise" title="No Anys on this line!">from typing import List</span>
@@ -207,7 +187,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">class Reservation:</span>
 <span class="line-empty" title="No Anys on this line!">    """Represents a hotel reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __init__(</span>
 <span class="line-empty" title="No Anys on this line!">        self,</span>
 <span class="line-empty" title="No Anys on this line!">        reservation_id: str,</span>
@@ -218,9 +197,7 @@
 <span class="line-empty" title="No Anys on this line!">        booking_date: date,</span>
 <span class="line-precise" title="No Anys on this line!">        status: Status = Status.PENDING,</span>
 <span class="line-empty" title="No Anys on this line!">    ) -&gt; None:</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">        """Initialize a reservation with basic attributes."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._reservation_id = reservation_id</span>
 <span class="line-precise" title="No Anys on this line!">        self._guest = guest</span>
 <span class="line-precise" title="No Anys on this line!">        self._rooms = rooms.copy()</span>
@@ -232,67 +209,56 @@
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def reservation_id(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the reservation id."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._reservation_id</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def guest(self) -&gt; Customer:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the guest."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._guest</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def checkin_date(self) -&gt; date:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the checkin date."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._checkin_date</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @checkin_date.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def checkin_date(self, value: date) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the checkin date."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._checkin_date = value</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def checkout_date(self) -&gt; date:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the check out date."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._checkout_date</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @checkout_date.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def checkout_date(self, value: date) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the checkout date."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._checkout_date = value</span>
-<span class="line-empty" title="No Anys on this line!">        </span>
+<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def booking_date(self) -&gt; date:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the booking date."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._booking_date</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def status(self) -&gt; Status:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the booking status."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._status</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-unanalyzed" title="No Anys on this line!">    @status.setter</span>
 <span class="line-precise" title="No Anys on this line!">    def status(self, value: Status) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Update the booking status."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._status = value</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def number_of_nights(self) -&gt; int:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the number of nights for the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return (self._checkout_date - self._checkin_date).days</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def subtotal(self) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the subtotal for all reserved rooms."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        total = 0.0</span>
 <span class="line-precise" title="No Anys on this line!">        for room in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            total += room.calculate_price(self.number_of_nights)</span>
@@ -301,30 +267,26 @@
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def discount_amount(self) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the discount amount."""</span>
-<span class="line-empty" title="No Anys on this line!">        #discount must be 0.value</span>
+<span class="line-empty" title="No Anys on this line!">        # discount must be 0.value</span>
 <span class="line-precise" title="No Anys on this line!">        return self.subtotal * self._guest.discount</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def total_price(self) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the total price after discount."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self.subtotal - self.discount_amount</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def confirm(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Confirm the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if self._status == Status.PENDING:</span>
 <span class="line-precise" title="No Anys on this line!">            self._status = Status.CONFIRMED</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def cancel(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Cancel the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if self._status in (Status.PENDING, Status.CONFIRMED):</span>
 <span class="line-precise" title="No Anys on this line!">            self._status = Status.CANCELLED</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def check_in(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Check in the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if self._status != Status.CONFIRMED:</span>
 <span class="line-precise" title="No Anys on this line!">            raise ValueError("Reservation must be confirmed first.")</span>
 <span class="line-empty" title="No Anys on this line!"></span>
@@ -334,7 +296,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def check_out(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Check out the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if self._status != Status.CHECKED_IN:</span>
 <span class="line-precise" title="No Anys on this line!">            raise ValueError("Reservation must be checked in first.")</span>
 <span class="line-empty" title="No Anys on this line!"></span>
@@ -345,12 +306,10 @@
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def rooms(self) -&gt; List[Room]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the reserved rooms."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._rooms.copy()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def add_room(self, room: Room) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Add a room to the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if room in self._rooms:</span>
 <span class="line-empty" title="No Anys on this line!">            return</span>
 <span class="line-empty" title="No Anys on this line!"></span>
@@ -361,7 +320,6 @@
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def remove_room(self, room: Room) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Remove a room from the reservation."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if room in self._rooms:</span>
 <span class="line-precise" title="No Anys on this line!">            self._rooms.remove(room)</span>
 <span class="line-empty" title="No Anys on this line!"></span>

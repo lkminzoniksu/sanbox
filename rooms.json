@@ -1,0 +1,282 @@
+[
+    {
+        "Room": "101",
+        "Type": "Standard",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "102",
+        "Type": "Standard",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "103",
+        "Type": "Standard",
+        "Bed": "Double",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "104",
+        "Type": "Standard",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "105",
+        "Type": "Standard",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "201",
+        "Type": "Deluxe",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Occupied"
+    },
+    {
+        "Room": "202",
+        "Type": "Deluxe",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "No",
+        "Status": "Occupied"
+    },
+    {
+        "Room": "203",
+        "Type": "Deluxe",
+        "Bed": "Double",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "204",
+        "Type": "Deluxe",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "205",
+        "Type": "Deluxe",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "301",
+        "Type": "Suite",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "302",
+        "Type": "Suite",
+        "Bed": "Queen",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "303",
+        "Type": "Suite",
+        "Bed": "Double",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "304",
+        "Type": "Suite",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "305",
+        "Type": "Suite",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "401",
+        "Type": "Standard",
+        "Bed": "Queen",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "402",
+        "Type": "Standard",
+        "Bed": "King",
+        "Smoking": "Yes",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "403",
+        "Type": "Standard",
+        "Bed": "Double",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "404",
+        "Type": "Standard",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "405",
+        "Type": "Standard",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "501",
+        "Type": "Deluxe",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "502",
+        "Type": "Deluxe",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "503",
+        "Type": "Deluxe",
+        "Bed": "Double",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "504",
+        "Type": "Deluxe",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "505",
+        "Type": "Deluxe",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "601",
+        "Type": "Suite",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "602",
+        "Type": "Suite",
+        "Bed": "Queen",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "603",
+        "Type": "Suite",
+        "Bed": "Double",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "604",
+        "Type": "Suite",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "605",
+        "Type": "Suite",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "701",
+        "Type": "Penthouse",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "702",
+        "Type": "Penthouse",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    },
+    {
+        "Room": "703",
+        "Type": "Penthouse",
+        "Bed": "Queen",
+        "Smoking": "Yes",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "704",
+        "Type": "Penthouse",
+        "Bed": "King",
+        "Smoking": "No",
+        "Pet": "Yes",
+        "Status": "Free"
+    },
+    {
+        "Room": "705",
+        "Type": "Penthouse",
+        "Bed": "Queen",
+        "Smoking": "No",
+        "Pet": "No",
+        "Status": "Free"
+    }
+]

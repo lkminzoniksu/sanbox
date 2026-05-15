@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card p-4 w-100">
+
+    <h1 class="title mb-4">
+        Reservations
+    </h1>
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <a
+            href="/reservations/new/"
+            class="btn btn-primary"
+        >
+            Create Reservation
+        </a>
+
+        <form
+            method="GET"
+            action="/reservations/"
+            class="d-flex"
+        >
+
+            <input
+                type="text"
+                name="search"
+                class="form-control me-2"
+                placeholder="Search..."
+                value="{{ search }}"
+            >
+
+            <button
+                class="btn btn-outline-primary"
+                type="submit"
+            >
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-striped align-middle">
+
+            <thead>
+                <tr>
+                    <th>Reservation</th>
+                    <th>Guest</th>
+                    <th>Room</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for reservation in reservations %}
+
+                <tr>
+
+                    <td>
+                        {{ reservation["Res ID"] }}
+                    </td>
+
+                    <td>
+                        {{ reservation["Guest"] }}
+                    </td>
+
+                    <td>
+                        {{ reservation["Room"] }}
+                    </td>
+
+                    <td>
+                        {{ reservation["Date in"] }}
+                    </td>
+
+                    <td>
+                        {{ reservation["Check-out"] }}
+                    </td>
+
+                    <td>
+
+                        {% if reservation["Status"] == "Reserved" %}
+
+                            <span class="badge bg-warning text-dark">
+                                Reserved
+                            </span>
+
+                        {% elif reservation["Status"] == "Checked-in" %}
+
+                            <span class="badge bg-success">
+                                Checked-in
+                            </span>
+
+                        {% elif reservation["Status"] == "Checked-out" %}
+
+                            <span class="badge bg-secondary">
+                                Checked-out
+                            </span>
+
+                        {% elif reservation["Status"] == "Cancelled" %}
+
+                            <span class="badge bg-danger">
+                                Cancelled
+                            </span>
+
+                        {% else %}
+
+                            {{ reservation["Status"] }}
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+                        {{ reservation["Total"] }}
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="/reservations/{{ reservation['Res ID'] }}/"
+                            class="btn btn-sm btn-primary"
+                        >
+                            View
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

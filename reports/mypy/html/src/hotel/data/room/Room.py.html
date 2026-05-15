@@ -120,42 +120,33 @@
 <span id="L110" class="lineno"><a class="lineno" href="#L110">110</a></span>
 <span id="L111" class="lineno"><a class="lineno" href="#L111">111</a></span>
 <span id="L112" class="lineno"><a class="lineno" href="#L112">112</a></span>
-<span id="L113" class="lineno"><a class="lineno" href="#L113">113</a></span>
-<span id="L114" class="lineno"><a class="lineno" href="#L114">114</a></span>
-<span id="L115" class="lineno"><a class="lineno" href="#L115">115</a></span>
-<span id="L116" class="lineno"><a class="lineno" href="#L116">116</a></span>
-<span id="L117" class="lineno"><a class="lineno" href="#L117">117</a></span>
-<span id="L118" class="lineno"><a class="lineno" href="#L118">118</a></span>
-<span id="L119" class="lineno"><a class="lineno" href="#L119">119</a></span>
-<span id="L120" class="lineno"><a class="lineno" href="#L120">120</a></span>
-<span id="L121" class="lineno"><a class="lineno" href="#L121">121</a></span>
-<span id="L122" class="lineno"><a class="lineno" href="#L122">122</a></span>
-<span id="L123" class="lineno"><a class="lineno" href="#L123">123</a></span>
-<span id="L124" class="lineno"><a class="lineno" href="#L124">124</a></span>
 </pre></td>
 <td class="table-code"><pre><span class="line-empty" title="No Anys on this line!">"""Abstract base class for room types."""</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">from abc import ABC, abstractmethod</span>
-<span class="line-precise" title="No Anys on this line!">from typing import List, Set</span>
+<span class="line-precise" title="No Anys on this line!">from typing import List</span>
 <span class="line-empty" title="No Anys on this line!"></span>
+<span class="line-precise" title="No Anys on this line!">from src.hotel.data.enums.Amenity import Amenity</span>
 <span class="line-precise" title="No Anys on this line!">from src.hotel.data.enums.BedType import BedType</span>
 <span class="line-precise" title="No Anys on this line!">from src.hotel.data.enums.RoomType import RoomType</span>
-<span class="line-precise" title="No Anys on this line!">from src.hotel.data.enums.Amenity import Amenity</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">from src.hotel.data.interfaces.Billable import Billable</span>
+<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">class Room(Billable, ABC):</span>
 <span class="line-empty" title="No Anys on this line!">    """Abstract class representing a hotel room."""</span>
 <span class="line-empty" title="No Anys on this line!"></span>
-<span class="line-precise" title="No Anys on this line!">    def __init__(self, room_number:int, bed_type: BedType,</span>
-<span class="line-empty" title="No Anys on this line!">                 smoking: bool, room_type: RoomType) -&gt; None:</span>
+<span class="line-precise" title="No Anys on this line!">    def __init__(</span>
+<span class="line-empty" title="No Anys on this line!">        self,</span>
+<span class="line-empty" title="No Anys on this line!">        room_number: int,</span>
+<span class="line-empty" title="No Anys on this line!">        bed_type: BedType,</span>
+<span class="line-empty" title="No Anys on this line!">        smoking: bool,</span>
+<span class="line-empty" title="No Anys on this line!">        room_type: RoomType,</span>
+<span class="line-empty" title="No Anys on this line!">    ) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Initialize a room with basic attributes."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._room_number = room_number</span>
 <span class="line-precise" title="No Anys on this line!">        self._bed_type = bed_type</span>
 <span class="line-precise" title="No Anys on this line!">        self._room_type = room_type</span>
-<span class="line-precise" title="Any Types on this line: 
-Omitted Generics (x3)">        self._amenities: Set[Amenity] = set()</span>
+<span class="line-precise" title="No Anys on this line!">        self._amenities: List[Amenity] = []</span>
 <span class="line-precise" title="No Anys on this line!">        self._smoking = smoking</span>
 <span class="line-precise" title="No Anys on this line!">        self._occupied = False</span>
 <span class="line-precise" title="No Anys on this line!">        self._special_requests: List[str] = []</span>
@@ -163,76 +154,62 @@ Omitted Generics (x3)">        self._amenities: Set[Amenity] = set()</span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def room_number(self) -&gt; int:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the room number."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._room_number</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def room_type(self) -&gt; RoomType:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the room type."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._room_type</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def bed_type(self) -&gt; BedType:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the bed type."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._bed_type</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
-<span class="line-precise" title="No Anys on this line!">    def amenities(self) -&gt; Set[Amenity]:</span>
+<span class="line-precise" title="No Anys on this line!">    def amenities(self) -&gt; List[Amenity]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the room amenities."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._amenities.copy()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def smoking(self) -&gt; bool:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return whether the room allows smoking."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._smoking</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def occupied(self) -&gt; bool:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return whether the room is occupied."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._occupied</span>
-<span class="line-empty" title="No Anys on this line!">        </span>
-<span class="line-empty" title="No Anys on this line!">    # add / remove amenities</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def add_amenity(self, amenity: Amenity) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Add an amenity to the room."""</span>
-<span class="line-empty" title="No Anys on this line!">        </span>
-<span class="line-precise" title="No Anys on this line!">        self._amenities.add(amenity)</span>
+<span class="line-precise" title="No Anys on this line!">        if amenity not in self._amenities:</span>
+<span class="line-precise" title="No Anys on this line!">            self._amenities.append(amenity)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def remove_amenity(self, amenity: Amenity) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Remove an amenity from the room."""</span>
+<span class="line-precise" title="No Anys on this line!">        if amenity in self._amenities:</span>
+<span class="line-precise" title="No Anys on this line!">            self._amenities.remove(amenity)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
-<span class="line-precise" title="No Anys on this line!">        self._amenities.discard(amenity)</span>
-<span class="line-empty" title="No Anys on this line!"></span>
-<span class="line-empty" title="No Anys on this line!">    # add / clear special requests</span>
 <span class="line-empty" title="No Anys on this line!">    @property</span>
 <span class="line-precise" title="No Anys on this line!">    def special_requests(self) -&gt; List[str]:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the room special requests."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self._special_requests.copy()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def add_special_request(self, request: str) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Add a special request to the room."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._special_requests.append(request)</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def clear_special_requests(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Clear all special requests from the room."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._special_requests.clear()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def check_in(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Mark the room as occupied."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._occupied = True</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def check_out(self) -&gt; None:</span>
 <span class="line-empty" title="No Anys on this line!">        """Mark the room as not occupied."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        self._occupied = False</span>
 <span class="line-precise" title="No Anys on this line!">        self.clear_special_requests()</span>
 <span class="line-empty" title="No Anys on this line!"></span>
@@ -240,19 +217,17 @@ Omitted Generics (x3)">        self._amenities: Set[Amenity] = set()</span>
 <span class="line-empty" title="No Anys on this line!">    @abstractmethod</span>
 <span class="line-precise" title="No Anys on this line!">    def base_price(self) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the base price of the room."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        raise NotImplementedError</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def calculate_price(self, nights: int) -&gt; float:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the total price for the stay."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        if nights &lt;= 0:</span>
 <span class="line-precise" title="No Anys on this line!">            return 0.0</span>
+<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">        return self.base_price * nights</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">    def __str__(self) -&gt; str:</span>
 <span class="line-empty" title="No Anys on this line!">        """Return the string representation of the room."""</span>
-<span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!">        return (</span>
 <span class="line-precise" title="No Anys on this line!">            f"Room {self._room_number} - {self._room_type} - "</span>
 <span class="line-precise" title="No Anys on this line!">            f"{self._bed_type} - "</span>
